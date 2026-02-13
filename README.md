@@ -98,21 +98,12 @@ However, there's a major challenge: This is the equation for the posterior distr
 
 ---
 
-## [Variational Inference]
-**[5:05 - 5:30]**
-
-The solution is variational inference. We can approximate the posterior with a simpler distribution q, where we assume q is a product of independent Gaussians for each layer. This is a mean-field approximation that allows us to break down the complex dependencies between layers. We then optimize the parameters of q to make it as close as possible to the true posterior, which is equivalent to maximizing the Evidence Lower Bound (ELBO).
-
-However, even with this approach, optimizing over all N function values still gives cubic complexity. We need inducing points to reduce dimensionality.
-
----
-
 ## [Sparse Variational Inference]
 **[5:30 - 6:00]**
 
-Sparse variational inference introduces M, where M is far smaller than the number of data points N, at each layer. These inducing variables summarize the function at each layer, allowing us to parameterize the posterior through these M points rather than all N data points.
+The solution is variational inference. We can approximate the posterior with a simpler distribution q, where we assume q is a product of independent Gaussians for each layer. This is a mean-field approximation and it allows us to break the complex dependencies between layers. We then optimize q to make it as close as possible to the true posterior, which is equivalent to maximizing the Evidence Lower Bound (ELBO). Which we touch on in the next slide
 
- The DGP ELBO has 2 terms, a data-fit term and a regularization term for each layer. Critically, this reduces complexity from order N-cubed to order N-M-squared, where M is typically between 100 and 1000—a massive computational saving.
+Sparse variational inference introduces M, where M is far smaller than the number of data points N, psudo points at each layer. These inducing variables summarize the function at each layer, allowing us to parameterize the posterior through these M points rather than all N data points.
 
 This mean field approximation does lose some uncertainty propagation between layers due to thee independence between layers assumption, but it allows us to train the model at all. 
 
@@ -120,9 +111,17 @@ This uncertainty propagation can be aproximately recovered through Monte Carlo s
 
 ---
 
+## [DGP ELBO]
+**[5:30 - 6:00]**
+
+ The DGP ELBO has 2 terms, a data-fit term and a regularization term for each layer. Critically, this reduces complexity from order N-cubed to order N-M-squared, where M is typically between 100 and 1000, while N could be over 1 million. Giving huge savings in time.
+
+---
+
 ## [DGP Summary]
 
-To summarize Deep GPs: We use them to model complex non-stationary functions, learn hierarchical features that standard GPs cannot capture, and enable flexible kernel composition without manual design. The challenges are that exact inference is intractable requiring variational approximations, there's increased computational cost and hyperparameter tuning, non-convex optimization can get stuck in local minima, and uncertainty propagation requires Monte Carlo sampling unlike standard GPs.
+To summarize Deep GPs: We use them to model complex non-stationary functions, learn hierarchical features that standard GPs cannot capture, and enable flexible kernel composition without manual design. The challenges are that exact inference is intractable requiring variational approximations, there's increased computational cost and hyperparameter tuning, non-convex optimization can get stuck in local minima.
+
 
 ---
 
