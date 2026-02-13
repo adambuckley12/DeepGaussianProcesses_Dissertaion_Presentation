@@ -6,7 +6,7 @@
 ## [SLIDE 1 - Title Slide]
 **[0:00 - 0:20]**
 
-So my plan is to attempt to teach you about deep gausian processes. Firstly i'll introduce Gaussian Processes (GPs), how we derive them and then we will see how these limitations in these GPs motivate extending Deep GPs. Ill explain the maths behind deep GPs and then move on tohow we train these models. Lastly, I'll present early results from a credit risk modelling case study.
+So my aim for this presentation is to explore deep gausian processes. Firstly i'll introduce Gaussian Processes (GPs), how we derive them and then we will see how these limitations in these GPs motivate extending Deep GPs. Ill explain the maths behind deep GPs and then move on tohow we train these models. Lastly, I'll present early results from a credit risk modelling case study.
 
 ---
 
