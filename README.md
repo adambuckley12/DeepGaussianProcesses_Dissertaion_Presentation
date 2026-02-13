@@ -10,10 +10,12 @@ So my plan is to explain to you what deep gausian processes are. Firstly i'll in
 
 ---
 
-## [SLIDE 3 - Towards Gaussian Processes]
+## [Towards Gaussian Processes]
 **[0:40 - 1:10]**
 
-Supose we have some dataset D and we want to find a function f that maps our input data to outputs. Supose we start at the most basic approach with linear regression. This works for linear data, but the linearity is too restrictive for many real-world problems. We can extend this using basis functions, where we transform our inputs through fixed functions phi. This gives us more flexibility and allows non-linearity, but we still need to choose how many basis functions to use and what form they should take. 
+So where to start?
+
+Lets suppose we have some dataset D and we want to find a function f that maps our input data to outputs. Supose we start at the most basic approach with linear regression. This works for linear data, but the linearity is too restrictive for many real-world problems. We can extend this using basis functions, where we transform our inputs through fixed functions phi. This gives us more flexibility and allows non-linearity, but we still need to choose how many basis functions to use and what form they should take. 
 
 What if we dont know what basis functions to pick? Is there a way to avoid the need to chose parameters?
 
